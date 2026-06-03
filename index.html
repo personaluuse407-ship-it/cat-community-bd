@@ -12,35 +12,40 @@
   <style>
     /* ── CSS Variables ─────────────────────────────── */
     :root {
-      /* Cozy palette — soft, warm, professional */
-      --primary:         #7B9C97;        /* sage green */
-      --primary-light:   #A8C4C0;        /* muted sage */
-      --primary-pale:    #E8F2F1;        /* very light sage */
-      --primary-dark:    #5A7A76;        /* deep sage */
+      /* Cozy warm palette — sunset, cream, cinnamon */
+      --warm-orange:     #E89B5A;
+      --warm-orange-dark: #C97A3D;
+      --warm-peach:      #F4C29D;
+      --warm-cream:      #FDF6EC;
+      --warm-beige:      #F5EBE0;
+      --warm-brown:      #8B6F47;
+      --warm-brown-dark: #6B5434;
       
-      --accent-pink:     #E8B4B8;        /* soft coral pink */
-      --accent-pink-pale: #F9E8E9;       /* pale pink */
+      --soft-coral:      #E8A598;
+      --soft-coral-pale: #F9E8E4;
+      
+      --muted-lavender:  #C4B5D4;
+      --muted-lavender-pale: #F0EAF5;
       
       --white:           #FFFFFF;
-      --off-white:       #FAFAFA;        /* warm white */
-      --cream:           #FDFBF9;        /* very light cream */
+      --off-white:       #FAF8F5;
       
-      --gray-100:        #F5F5F5;
-      --gray-200:        #E8E8E8;
-      --gray-300:        #D0D0D0;
-      --gray-400:        #A0A0A0;
-      --gray-600:        #6B6B6B;
-      --gray-800:        #3D3D3D;
-      --gray-900:        #2A2A2A;
+      --gray-100:        #F0E9E2;
+      --gray-200:        #E5D8CF;
+      --gray-300:        #D0B8A8;
+      --gray-400:        #B89B84;
+      --gray-600:        #7A6351;
+      --gray-800:        #4A3B32;
+      --gray-900:        #2D241E;
       
-      /* Blood donation — stays red */
-      --red-soft:        #E57373;
-      --red-pale:        #FDE8E8;
-      --red-dark:        #C62828;
+      /* Blood donation — deep red */
+      --red-soft:        #D66262;
+      --red-pale:        #FDE7E7;
+      --red-dark:        #A82828;
       
-      --shadow-sm:       0 2px 8px rgba(42,42,42,0.06);
-      --shadow-md:       0 6px 24px rgba(42,42,42,0.09);
-      --shadow-lg:       0 16px 48px rgba(42,42,42,0.12);
+      --shadow-sm:       0 2px 8px rgba(45,36,30,0.08);
+      --shadow-md:       0 6px 24px rgba(45,36,30,0.12);
+      --shadow-lg:       0 16px 48px rgba(45,36,30,0.16);
       --radius-sm:       10px;
       --radius-md:       18px;
       --radius-lg:       28px;
@@ -55,7 +60,7 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: var(--font-body);
-      background-color: var(--cream);
+      background-color: var(--warm-cream);
       color: var(--gray-800);
       line-height: 1.7;
       overflow-x: hidden;
@@ -77,7 +82,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 14px 24px;
-      background: rgba(253,251,249,0.92);
+      background: rgba(253,246,236,0.94);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--gray-200);
@@ -89,9 +94,9 @@
       font-family: var(--font-display);
       font-size: 1.25rem;
       font-weight: 700;
-      color: var(--primary-dark);
+      color: var(--warm-brown-dark);
     }
-    .nav-logo span.paw { font-size: 1.4rem; }
+    .nav-logo svg { width: 28px; height: 28px; }
     .nav-right {
       display: flex;
       align-items: center;
@@ -99,7 +104,7 @@
     }
     .nav-apk {
       display: none;
-      background: var(--primary);
+      background: var(--warm-orange);
       color: #fff;
       font-family: var(--font-display);
       font-weight: 600;
@@ -108,7 +113,7 @@
       border-radius: var(--radius-xl);
       transition: background 0.2s, transform 0.15s;
     }
-    .nav-apk:hover { background: var(--primary-dark); transform: translateY(-1px); }
+    .nav-apk:hover { background: var(--warm-orange-dark); transform: translateY(-1px); }
     @media (min-width: 600px) { .nav-apk { display: inline-block; } }
 
     /* Language toggle */
@@ -133,9 +138,9 @@
       white-space: nowrap;
     }
     .lang-btn.active {
-      background: var(--primary);
+      background: var(--warm-orange);
       color: #fff;
-      box-shadow: 0 2px 8px rgba(123,156,151,0.3);
+      box-shadow: 0 2px 8px rgba(232,155,90,0.3);
     }
 
     /* ── Section shell ─────────────────────────────── */
@@ -150,10 +155,10 @@
     .hero {
       min-height: 100svh;
       background:
-        radial-gradient(ellipse 80% 60% at 70% 30%, var(--primary-pale) 0%, transparent 65%),
-        radial-gradient(ellipse 50% 40% at 10% 80%, var(--accent-pink-pale) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 50% at 50% 50%, rgba(123,156,151,0.04) 0%, transparent 70%),
-        var(--cream);
+        radial-gradient(ellipse 70% 50% at 75% 25%, var(--warm-peach) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 15% 85%, var(--soft-coral-pale) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 55% at 50% 50%, var(--muted-lavender-pale) 0%, transparent 75%),
+        var(--warm-cream);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -164,51 +169,31 @@
       overflow: hidden;
     }
 
-    /* Floating elements bg — paws, hearts, stars */
-    .hero::before {
-      content: '🐾 ✨ 🐾 🌸 🐾 ✨ 🐾 🌸 🐾 ✨';
+    /* Floating decorative elements */
+    .hero-decoration {
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
       font-size: 2rem;
-      letter-spacing: 2.5rem;
-      line-height: 4.5rem;
-      word-spacing: 1.5rem;
-      color: rgba(123,156,151,0.08);
+      opacity: 0.12;
       pointer-events: none;
       user-select: none;
-      overflow: hidden;
-      padding: 20px;
-      animation: floatBackground 20s ease-in-out infinite;
     }
+    .hero-decoration-1 { top: 15%; left: 8%; animation: floatDecor 6s ease-in-out infinite; }
+    .hero-decoration-2 { top: 25%; right: 10%; animation: floatDecor 7s ease-in-out infinite reverse; }
+    .hero-decoration-3 { bottom: 20%; left: 12%; animation: floatDecor 8s ease-in-out infinite; }
+    .hero-decoration-4 { bottom: 15%; right: 8%; animation: floatDecor 6.5s ease-in-out infinite reverse; }
 
-    .hero::after {
-      content: '✨ 🌸 💫 🌸 ✨ 💫 🌸 ✨ 💫 🌸';
-      position: absolute;
-      top: 10%; left: 0; right: 0; bottom: 10%;
-      font-size: 1.5rem;
-      letter-spacing: 2rem;
-      line-height: 3.5rem;
-      word-spacing: 1rem;
-      color: rgba(232,180,184,0.06);
-      pointer-events: none;
-      user-select: none;
-      overflow: hidden;
-      padding: 30px;
-      animation: floatBackground 25s ease-in-out infinite reverse;
-    }
-
-    @keyframes floatBackground {
+    @keyframes floatDecor {
       0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-15px) rotate(2deg); }
+      50% { transform: translateY(-12px) rotate(3deg); }
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--primary-pale);
-      border: 1px solid rgba(123,156,151,0.3);
-      color: var(--primary-dark);
+      background: var(--soft-coral-pale);
+      border: 1px solid rgba(232,165,152,0.4);
+      color: var(--warm-brown-dark);
       font-size: 0.82rem;
       font-weight: 700;
       padding: 6px 16px;
@@ -218,56 +203,53 @@
       text-transform: uppercase;
       animation: fadeDown 0.6s ease both;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(2.4rem, 8vw, 4.2rem);
+      font-size: clamp(2.6rem, 9vw, 4.5rem);
       font-weight: 700;
       color: var(--gray-900);
-      line-height: 1.15;
-      margin-bottom: 10px;
+      line-height: 1.12;
+      margin-bottom: 12px;
       animation: fadeDown 0.65s 0.1s ease both;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
-    .hero-title .accent { color: var(--primary); }
+    .hero-title .accent { 
+      color: var(--warm-orange);
+      text-shadow: 0 2px 12px rgba(232,155,90,0.2);
+    }
 
     .hero-tagline {
-      font-size: clamp(1rem, 2.8vw, 1.2rem);
+      font-size: clamp(1.05rem, 3vw, 1.25rem);
       color: var(--gray-600);
-      max-width: 520px;
-      margin: 0 auto 36px;
+      max-width: 540px;
+      margin: 0 auto 38px;
       font-weight: 500;
       animation: fadeDown 0.65s 0.2s ease both;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
-    .hero-cat {
-      font-size: clamp(5rem, 18vw, 9rem);
-      margin-bottom: 24px;
-      animation: floatCat 3s ease-in-out infinite, fadeDown 0.6s 0.05s ease both;
-      display: block;
-      filter: drop-shadow(0 12px 32px rgba(123,156,151,0.25));
+    /* Daijin SVG container */
+    .hero-cat-container {
+      margin-bottom: 28px;
+      animation: floatCat 3.5s ease-in-out infinite, fadeDown 0.6s 0.05s ease both;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
-    .hero-cat-halo {
-      font-size: clamp(3rem, 10vw, 5rem);
-      margin-bottom: -10px;
-      display: block;
-      opacity: 0.6;
-      animation: floatHalo 4s ease-in-out infinite;
-      position: relative;
-      z-index: 1;
+    .hero-cat-svg {
+      width: clamp(140px, 28vw, 240px);
+      height: auto;
+      filter: drop-shadow(0 12px 36px rgba(139,111,71,0.2));
     }
 
-    @keyframes floatHalo {
-      0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
-      50% { transform: translateY(-8px) scale(1.05); opacity: 0.7; }
+    @keyframes floatCat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%       { transform: translateY(-18px) scale(1.02); }
     }
 
     .hero-buttons {
@@ -277,7 +259,7 @@
       justify-content: center;
       animation: fadeDown 0.65s 0.3s ease both;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     /* ── Buttons ───────────────────────────────────── */
@@ -298,31 +280,22 @@
     .btn:hover { transform: translateY(-2px); }
     .btn:active { transform: translateY(0); }
     .btn-primary {
-      background: var(--primary);
+      background: var(--warm-orange);
       color: #fff;
-      box-shadow: 0 4px 20px rgba(123,156,151,0.35);
+      box-shadow: 0 4px 20px rgba(232,155,90,0.4);
     }
     .btn-primary:hover {
-      background: var(--primary-dark);
-      box-shadow: 0 8px 28px rgba(123,156,151,0.4);
+      background: var(--warm-orange-dark);
+      box-shadow: 0 8px 28px rgba(232,155,90,0.45);
     }
     .btn-outline {
       background: var(--white);
-      color: var(--primary-dark);
-      border: 2px solid var(--primary);
+      color: var(--warm-brown-dark);
+      border: 2px solid var(--warm-orange);
       box-shadow: var(--shadow-sm);
     }
     .btn-outline:hover {
-      background: var(--primary-pale);
-    }
-    .btn-pink {
-      background: var(--accent-pink);
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(232,180,184,0.35);
-    }
-    .btn-pink:hover {
-      background: #d49599;
-      box-shadow: 0 8px 28px rgba(232,180,184,0.4);
+      background: var(--warm-beige);
     }
 
     /* ── Section common styles ─────────────────────── */
@@ -356,14 +329,14 @@
       padding: 80px 20px;
       position: relative;
     }
-    .about::before {
-      content: '🏡 😺 🐱';
+    .about-decoration {
       position: absolute;
-      top: 20px; right: 30px;
-      font-size: 2rem;
-      opacity: 0.15;
-      letter-spacing: 1rem;
+      font-size: 2.5rem;
+      opacity: 0.1;
+      pointer-events: none;
     }
+    .about-decoration-1 { top: 25px; right: 30px; }
+    .about-decoration-2 { bottom: 25px; left: 30px; }
     .about .container {
       display: flex;
       flex-direction: column;
@@ -371,11 +344,11 @@
       text-align: center;
       gap: 20px;
     }
-    .about .section-tag { background: var(--primary-pale); color: var(--primary-dark); }
+    .about .section-tag { background: var(--soft-coral-pale); color: var(--warm-brown-dark); }
     .about-illus {
-      font-size: 4rem;
+      font-size: 4.5rem;
       margin-top: 10px;
-      filter: drop-shadow(0 4px 12px rgba(123,156,151,0.2));
+      filter: drop-shadow(0 4px 16px rgba(139,111,71,0.2));
     }
 
     /* ── Why section ───────────────────────────────── */
@@ -385,23 +358,21 @@
       position: relative;
       overflow: hidden;
     }
-    .why::before {
-      content: '💫 ✨ 💫 ✨';
+    .why-decoration {
       position: absolute;
-      top: 10%; left: -20px;
       font-size: 2.5rem;
       opacity: 0.08;
-      letter-spacing: 2rem;
-      line-height: 3.5rem;
-      transform: rotate(-15deg);
+      pointer-events: none;
     }
+    .why-decoration-1 { top: 12%; left: -15px; transform: rotate(-12deg); }
+    .why-decoration-2 { bottom: 10%; right: -10px; transform: rotate(10deg); }
     .why .container {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
     }
-    .why .section-tag { background: var(--primary-pale); color: var(--primary-dark); }
+    .why .section-tag { background: var(--muted-lavender-pale); color: var(--warm-brown-dark); }
     .why-cards {
       display: grid;
       grid-template-columns: 1fr;
@@ -427,9 +398,9 @@
       transition: box-shadow 0.2s, transform 0.2s;
     }
     .why-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
-    .why-card:nth-child(1) { border-color: var(--primary); }
+    .why-card:nth-child(1) { border-color: var(--warm-orange); }
     .why-card:nth-child(2) { border-color: var(--red-soft); }
-    .why-card:nth-child(3) { border-color: var(--accent-pink); }
+    .why-card:nth-child(3) { border-color: var(--soft-coral); }
     .why-card-icon { font-size: 2.4rem; }
     .why-card-text {
       font-size: 0.97rem;
@@ -445,27 +416,14 @@
       position: relative;
       overflow: hidden;
     }
-    .blood::before {
-      content: '🩸 💉 🐱 🩸 💉 🐱';
+    .blood-decoration {
       position: absolute;
-      top: -10px; right: -20px;
       font-size: 3rem;
       opacity: 0.07;
-      letter-spacing: 1.5rem;
-      line-height: 4rem;
       pointer-events: none;
-      user-select: none;
-      transform: rotate(-10deg);
     }
-    .blood::after {
-      content: '💫 🩸 💫';
-      position: absolute;
-      bottom: 10%; left: -10px;
-      font-size: 2.5rem;
-      opacity: 0.06;
-      letter-spacing: 2rem;
-      transform: rotate(10deg);
-    }
+    .blood-decoration-1 { top: -10px; right: -20px; transform: rotate(-10deg); }
+    .blood-decoration-2 { bottom: 10%; left: -15px; transform: rotate(8deg); }
     .blood .container {
       display: flex;
       flex-direction: column;
@@ -475,41 +433,41 @@
       position: relative;
       z-index: 1;
     }
-    .blood .section-tag { background: rgba(229,115,115,0.2); color: #ffcdd2; }
+    .blood .section-tag { background: rgba(214,98,98,0.25); color: #ffcdd2; }
     .blood .section-title { color: #fff; }
-    .blood .section-body { color: rgba(255,255,255,0.75); max-width: 540px; }
+    .blood .section-body { color: rgba(255,255,255,0.78); max-width: 540px; }
     .blood-icon { font-size: 3.5rem; animation: heartbeat 1.5s ease-in-out infinite; }
     .btn-blood {
       background: var(--red-soft);
       color: #fff;
-      box-shadow: 0 4px 20px rgba(229,115,115,0.4);
+      box-shadow: 0 4px 20px rgba(214,98,98,0.4);
     }
     .btn-blood:hover {
       background: var(--red-dark);
-      box-shadow: 0 8px 28px rgba(229,115,115,0.5);
+      box-shadow: 0 8px 28px rgba(214,98,98,0.5);
     }
 
     /* ── Features ──────────────────────────────────── */
     .features {
-      background: var(--cream);
+      background: var(--warm-beige);
       padding: 80px 20px;
       position: relative;
     }
-    .features::before {
-      content: '🌸 ✨ 🌸';
+    .features-decoration {
       position: absolute;
-      top: 30px; left: 30px;
       font-size: 2rem;
       opacity: 0.12;
-      letter-spacing: 1.2rem;
+      pointer-events: none;
     }
+    .features-decoration-1 { top: 25px; left: 25px; }
+    .features-decoration-2 { top: 60px; right: 35px; }
     .features .container {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
     }
-    .features .section-tag { background: var(--primary-pale); color: var(--primary-dark); }
+    .features .section-tag { background: var(--soft-coral-pale); color: var(--warm-brown-dark); }
     .feature-cards {
       display: grid;
       grid-template-columns: 1fr;
@@ -535,8 +493,8 @@
       content: '✨';
       position: absolute;
       top: 12px; right: 12px;
-      font-size: 1.2rem;
-      opacity: 0.3;
+      font-size: 1.1rem;
+      opacity: 0.35;
     }
     .feature-card::after {
       content: '';
@@ -544,9 +502,9 @@
       bottom: 0; left: 0; right: 0;
       height: 4px;
     }
-    .feature-card:nth-child(1)::after { background: var(--primary); }
+    .feature-card:nth-child(1)::after { background: var(--warm-orange); }
     .feature-card:nth-child(2)::after { background: var(--red-soft); }
-    .feature-card:nth-child(3)::after { background: var(--accent-pink); }
+    .feature-card:nth-child(3)::after { background: var(--soft-coral); }
     .feature-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
     .feature-icon { font-size: 2.6rem; margin-bottom: 14px; }
     .feature-title {
@@ -564,19 +522,18 @@
 
     /* ── Download ──────────────────────────────────── */
     .download {
-      background: linear-gradient(135deg, var(--primary-pale) 0%, #F5F9F8 100%);
+      background: linear-gradient(135deg, var(--soft-coral-pale) 0%, var(--warm-cream) 100%);
       padding: 80px 20px;
       border-top: 1px solid var(--gray-200);
       position: relative;
     }
-    .download::before {
-      content: '📲 ✨ 📲';
+    .download-decoration {
       position: absolute;
-      top: 20px; right: 30px;
       font-size: 2rem;
       opacity: 0.12;
-      letter-spacing: 1.5rem;
+      pointer-events: none;
     }
+    .download-decoration-1 { top: 20px; right: 30px; }
     .download .container {
       display: flex;
       flex-direction: column;
@@ -584,7 +541,7 @@
       text-align: center;
       gap: 18px;
     }
-    .download .section-tag { background: var(--primary-pale); color: var(--primary-dark); }
+    .download .section-tag { background: var(--soft-coral-pale); color: var(--warm-brown-dark); }
     .download-note {
       display: inline-flex;
       align-items: center;
@@ -602,49 +559,37 @@
     /* ── Footer ────────────────────────────────────── */
     footer {
       background: var(--gray-900);
-      color: rgba(255,255,255,0.65);
+      color: rgba(255,255,255,0.68);
       padding: 36px 20px;
       text-align: center;
       position: relative;
     }
-    footer::before {
-      content: '🐾';
+    footer-decoration {
       position: absolute;
-      top: 12px; left: 50%;
-      transform: translateX(-50%);
       font-size: 1.5rem;
       opacity: 0.3;
-    }
-    footer .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
+      pointer-events: none;
     }
     .footer-logo {
       font-family: var(--font-display);
       font-size: 1.2rem;
       font-weight: 700;
-      color: var(--primary-light);
+      color: var(--warm-peach);
     }
     .footer-copy {
       font-size: 0.88rem;
     }
     .footer-email a {
-      color: var(--primary-light);
+      color: var(--warm-peach);
       font-size: 0.9rem;
       transition: color 0.2s;
     }
-    .footer-email a:hover { color: var(--primary); }
+    .footer-email a:hover { color: var(--warm-orange); }
 
     /* ── Animations ────────────────────────────────── */
     @keyframes fadeDown {
       from { opacity: 0; transform: translateY(-16px); }
       to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes floatCat {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50%       { transform: translateY(-16px) scale(1.03); }
     }
     @keyframes heartbeat {
       0%, 100% { transform: scale(1); }
@@ -685,7 +630,23 @@
   <!-- ── NAV ─────────────────────────────────────── -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-logo">
-      <span class="paw" aria-hidden="true">🐱</span>
+      <!-- Daijin mini SVG logo -->
+      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <ellipse cx="30" cy="35" rx="18" ry="14" fill="#F5EBE0"/>
+        <ellipse cx="30" cy="32" rx="14" ry="11" fill="#FFFFFF"/>
+        <polygon points="18,22 22,8 28,18" fill="#F5EBE0"/>
+        <polygon points="42,22 38,8 32,18" fill="#F5EBE0"/>
+        <ellipse cx="25" cy="30" rx="2.5" ry="3" fill="#2D241E"/>
+        <ellipse cx="35" cy="30" rx="2.5" ry="3" fill="#2D241E"/>
+        <polygon points="28,35 32,38 36,35" fill="#E89B5A"/>
+        <path d="M26 38 Q30 42 34 38" stroke="#E89B5A" stroke-width="1.5" fill="none"/>
+        <line x1="16" y1="35" x2="22" y2="33" stroke="#8B6F47" stroke-width="1"/>
+        <line x1="16" y1="37" x2="22" y2="37" stroke="#8B6F47" stroke-width="1"/>
+        <line x1="16" y1="39" x2="22" y2="41" stroke="#8B6F47" stroke-width="1"/>
+        <line x1="44" y1="35" x2="38" y2="33" stroke="#8B6F47" stroke-width="1"/>
+        <line x1="44" y1="37" x2="38" y2="37" stroke="#8B6F47" stroke-width="1"/>
+        <line x1="44" y1="39" x2="38" y2="41" stroke="#8B6F47" stroke-width="1"/>
+      </svg>
       <span data-en="Cat Community" data-bn="বিড়াল কমিউনিটি">Cat Community</span>
     </div>
     <div class="nav-right">
@@ -700,9 +661,95 @@
 
   <!-- ── HERO ────────────────────────────────────── -->
   <section class="hero" id="hero" aria-labelledby="hero-title">
-    <!-- Daijin (Suzume's white cat) + magical elements -->
-    <span class="hero-cat" role="img" aria-label="white cat emoji">⚪</span>
-    <span class="hero-cat-halo" role="img" aria-label="cat face">😺</span>
+    <!-- Floating decorations -->
+    <div class="hero-decoration hero-decoration-1">🌸</div>
+    <div class="hero-decoration hero-decoration-2">✨</div>
+    <div class="hero-decoration hero-decoration-3">🌙</div>
+    <div class="hero-decoration hero-decoration-4">💫</div>
+    
+    <!-- Daijin SVG (white cat from Suzume anime) -->
+    <div class="hero-cat-container">
+      <svg class="hero-cat-svg" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Daijin white cat">
+        <!-- Back body (tail base) -->
+        <ellipse cx="100" cy="165" rx="45" ry="38" fill="#F5EBE0"/>
+        <!-- Tail -->
+        <path d="M 55 160 Q 25 150 20 175 Q 18 195 35 205 Q 50 212 65 200 Q 75 192 70 180 Q 65 170 55 160" fill="#F5EBE0"/>
+        <path d="M 58 162 Q 30 152 25 172 Q 23 188 37 196 Q 48 202 60 193 Q 68 186 64 177 Q 60 170 58 162" fill="#E8DCC8"/>
+        
+        <!-- Main body -->
+        <ellipse cx="100" cy="170" rx="52" ry="45" fill="#FFFFFF"/>
+        <!-- Body highlight -->
+        <ellipse cx="92" cy="165" rx="25" ry="22" fill="#F9F5F0"/>
+        
+        <!-- Head -->
+        <ellipse cx="100" cy="95" rx="58" ry="52" fill="#FFFFFF"/>
+        <!-- Head shadow/contour -->
+        <ellipse cx="100" cy="98" rx="52" ry="46" fill="#FCF9F5"/>
+        
+        <!-- Left ear -->
+        <polygon points="52,70 42,25 72,48" fill="#FFFFFF"/>
+        <polygon points="55,68 48,35 68,52" fill="#F9F5F0"/>
+        <polygon points="53,67 46,40 65,53" fill="#FFE4D8"/>
+        
+        <!-- Right ear -->
+        <polygon points="148,70 158,25 128,48" fill="#FFFFFF"/>
+        <polygon points="145,68 152,35 132,52" fill="#F9F5F0"/>
+        <polygon points="147,67 154,40 135,53" fill="#FFE4D8"/>
+        
+        <!-- Left eye (closed/sleepy like Daijin) -->
+        <path d="M 68 90 Q 78 86 88 90" stroke="#2D241E" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <ellipse cx="73" cy="88" rx="1.5" ry="2" fill="#2D241E"/>
+        
+        <!-- Right eye (closed/sleepy) -->
+        <path d="M 112 90 Q 122 86 132 90" stroke="#2D241E" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <ellipse cx="127" cy="88" rx="1.5" ry="2" fill="#2D241E"/>
+        
+        <!-- Eyebrows (slightly raised for lazy expression) -->
+        <path d="M 66 82 Q 78 78 88 81" stroke="#8B6F47" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+        <path d="M 112 81 Q 122 78 134 82" stroke="#8B6F47" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+        
+        <!-- Nose -->
+        <ellipse cx="100" cy="108" rx="5" ry="4" fill="#E89B5A"/>
+        <ellipse cx="98" cy="106" rx="2" ry="1.5" fill="#FFFFFF" opacity="0.6"/>
+        
+        <!-- Mouth -->
+        <path d="M 92 115 Q 100 122 108 115" stroke="#8B6F47" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M 100 108 Q 100 118 100 120" stroke="#8B6F47" stroke-width="2" fill="none" stroke-linecap="round"/>
+        
+        <!-- Whiskers left -->
+        <line x1="45" y1="105" x2="68" y2="108" stroke="#8B6F47" stroke-width="1.5" opacity="0.7"/>
+        <line x1="42" y1="112" x2="68" y2="114" stroke="#8B6F47" stroke-width="1.5" opacity="0.7"/>
+        <line x1="43" y1="119" x2="67" y2="121" stroke="#8B6F47" stroke-width="1.5" opacity="0.7"/>
+        
+        <!-- Whiskers right -->
+        <line x1="155" y1="105" x2="132" y2="108" stroke="#8B6F47" stroke-width="1.5" opacity="0.7"/>
+        <line x1="158" y1="112" x2="132" y2="114" stroke="#8B6F47" stroke-width="1.5" opacity="0.7"/>
+        <line x1="157" y1="119" x2="133" y2="121" stroke="#8B6F47" stroke-width="1.5" opacity="0.7"/>
+        
+        <!-- Cheek blush (soft pink) -->
+        <ellipse cx="72" cy="115" rx="10" ry="6" fill="#E8A598" opacity="0.25"/>
+        <ellipse cx="128" cy="115" rx="10" ry="6" fill="#E8A598" opacity="0.25"/>
+        
+        <!-- Front paws -->
+        <ellipse cx="78" cy="205" rx="12" ry="10" fill="#FFFFFF"/>
+        <ellipse cx="122" cy="205" rx="12" ry="10" fill="#FFFFFF"/>
+        <ellipse cx="78" cy="203" rx="8" ry="7" fill="#F9F5F0"/>
+        <ellipse cx="122" cy="203" rx="8" ry="7" fill="#F9F5F0"/>
+        
+        <!-- Paw toes -->
+        <ellipse cx="74" cy="206" rx="3" ry="2.5" fill="#F5EBE0"/>
+        <ellipse cx="78" cy="208" rx="3" ry="2.5" fill="#F5EBE0"/>
+        <ellipse cx="82" cy="206" rx="3" ry="2.5" fill="#F5EBE0"/>
+        <ellipse cx="118" cy="206" rx="3" ry="2.5" fill="#F5EBE0"/>
+        <ellipse cx="122" cy="208" rx="3" ry="2.5" fill="#F5EBE0"/>
+        <ellipse cx="126" cy="206" rx="3" ry="2.5" fill="#F5EBE0"/>
+        
+        <!-- Magical glow (Daijin's supernatural nature) -->
+        <ellipse cx="100" cy="120" rx="70" ry="80" fill="#FFF5EE" opacity="0.15"/>
+        <ellipse cx="100" cy="110" rx="50" ry="60" fill="#FFE8DD" opacity="0.1"/>
+      </svg>
+    </div>
+    
     <div class="hero-badge" aria-label="Bangladesh-focused app">
       🇧🇩 <span data-en="Made for Bangladesh" data-bn="বাংলাদেশের জন্য তৈরি">Made for Bangladesh</span>
     </div>
@@ -730,6 +777,8 @@
 
   <!-- ── ABOUT ────────────────────────────────────── -->
   <section class="about" id="about" aria-labelledby="about-title">
+    <div class="about-decoration about-decoration-1">🏡</div>
+    <div class="about-decoration about-decoration-2">💫</div>
     <div class="container">
       <span class="section-tag reveal"
             data-en="🐾 Who We Are" data-bn="🐾 আমরা কারা">🐾 Who We Are</span>
@@ -745,13 +794,15 @@
         across Bangladesh — because every cat deserves care, and every owner deserves support.
       </p>
       <div class="about-illus reveal reveal-delay-3" aria-hidden="true">
-        😺 🐾 🏡 💫
+        😺 🐾 🏡 💫 🌸
       </div>
     </div>
   </section>
 
   <!-- ── WHY ──────────────────────────────────────── -->
   <section class="why" id="why" aria-labelledby="why-title">
+    <div class="why-decoration why-decoration-1">✨</div>
+    <div class="why-decoration why-decoration-2">💫</div>
     <div class="container">
       <span class="section-tag reveal"
             data-en="💡 Why We Are Here" data-bn="💡 আমরা কেন এখানে">💡 Why We Are Here</span>
@@ -779,7 +830,7 @@
         </div>
         <div class="why-card reveal reveal-delay-2">
           <div class="why-card-icon" aria-hidden="true">💬</div>
-          <p class="card-text"
+          <p class="why-card-text"
              data-en="A safe, trusted space for cat owners to connect and share"
              data-bn="বিড়াল মালিকদের সংযোগ ও ভাগাভাগির জন্য একটি নিরাপদ ও বিশ্বস্ত জায়গা">
             A safe, trusted space for cat owners to connect and share
@@ -791,6 +842,8 @@
 
   <!-- ── BLOOD DONATION ───────────────────────────── -->
   <section class="blood" id="blood" aria-labelledby="blood-title">
+    <div class="blood-decoration blood-decoration-1">🩸</div>
+    <div class="blood-decoration blood-decoration-2">💉</div>
     <div class="container">
       <span class="section-tag reveal"
             data-en="🩸 Emergency Help" data-bn="🩸 জরুরি সহায়তা">🩸 Emergency Help</span>
@@ -816,6 +869,8 @@
 
   <!-- ── FEATURES ─────────────────────────────────── -->
   <section class="features" id="features" aria-labelledby="features-title">
+    <div class="features-decoration features-decoration-1">🌸</div>
+    <div class="features-decoration features-decoration-2">✨</div>
     <div class="container">
       <span class="section-tag reveal"
             data-en="✨ Features" data-bn="✨ বৈশিষ্ট্যসমূহ">✨ Features</span>
@@ -861,6 +916,7 @@
 
   <!-- ── DOWNLOAD ─────────────────────────────────── -->
   <section class="download" id="download" aria-labelledby="download-title">
+    <div class="download-decoration download-decoration-1">📲</div>
     <div class="container">
       <span class="section-tag reveal"
             data-en="📲 Get the App" data-bn="📲 অ্যাপ নিন">📲 Get the App</span>
