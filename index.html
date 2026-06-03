@@ -152,6 +152,7 @@
       background:
         radial-gradient(ellipse 80% 60% at 70% 30%, var(--primary-pale) 0%, transparent 65%),
         radial-gradient(ellipse 50% 40% at 10% 80%, var(--accent-pink-pale) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 50% 50%, rgba(123,156,151,0.04) 0%, transparent 70%),
         var(--cream);
       display: flex;
       flex-direction: column;
@@ -163,20 +164,42 @@
       overflow: hidden;
     }
 
-    /* Floating paw prints bg */
+    /* Floating elements bg — paws, hearts, stars */
     .hero::before {
-      content: '🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾';
+      content: '🐾 ✨ 🐾 🌸 🐾 ✨ 🐾 🌸 🐾 ✨';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      font-size: 2.5rem;
-      letter-spacing: 3rem;
-      line-height: 5rem;
-      word-spacing: 2rem;
+      font-size: 2rem;
+      letter-spacing: 2.5rem;
+      line-height: 4.5rem;
+      word-spacing: 1.5rem;
       color: rgba(123,156,151,0.08);
       pointer-events: none;
       user-select: none;
       overflow: hidden;
       padding: 20px;
+      animation: floatBackground 20s ease-in-out infinite;
+    }
+
+    .hero::after {
+      content: '✨ 🌸 💫 🌸 ✨ 💫 🌸 ✨ 💫 🌸';
+      position: absolute;
+      top: 10%; left: 0; right: 0; bottom: 10%;
+      font-size: 1.5rem;
+      letter-spacing: 2rem;
+      line-height: 3.5rem;
+      word-spacing: 1rem;
+      color: rgba(232,180,184,0.06);
+      pointer-events: none;
+      user-select: none;
+      overflow: hidden;
+      padding: 30px;
+      animation: floatBackground 25s ease-in-out infinite reverse;
+    }
+
+    @keyframes floatBackground {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(2deg); }
     }
 
     .hero-badge {
@@ -194,6 +217,8 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       animation: fadeDown 0.6s ease both;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-title {
@@ -204,6 +229,8 @@
       line-height: 1.15;
       margin-bottom: 10px;
       animation: fadeDown 0.65s 0.1s ease both;
+      position: relative;
+      z-index: 1;
     }
     .hero-title .accent { color: var(--primary); }
 
@@ -214,14 +241,33 @@
       margin: 0 auto 36px;
       font-weight: 500;
       animation: fadeDown 0.65s 0.2s ease both;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-cat {
-      font-size: clamp(4rem, 14vw, 7rem);
-      margin-bottom: 20px;
+      font-size: clamp(5rem, 18vw, 9rem);
+      margin-bottom: 24px;
       animation: floatCat 3s ease-in-out infinite, fadeDown 0.6s 0.05s ease both;
       display: block;
-      filter: drop-shadow(0 8px 20px rgba(123,156,151,0.2));
+      filter: drop-shadow(0 12px 32px rgba(123,156,151,0.25));
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-cat-halo {
+      font-size: clamp(3rem, 10vw, 5rem);
+      margin-bottom: -10px;
+      display: block;
+      opacity: 0.6;
+      animation: floatHalo 4s ease-in-out infinite;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes floatHalo {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+      50% { transform: translateY(-8px) scale(1.05); opacity: 0.7; }
     }
 
     .hero-buttons {
@@ -230,6 +276,8 @@
       gap: 14px;
       justify-content: center;
       animation: fadeDown 0.65s 0.3s ease both;
+      position: relative;
+      z-index: 1;
     }
 
     /* ── Buttons ───────────────────────────────────── */
@@ -306,6 +354,15 @@
     .about {
       background: var(--white);
       padding: 80px 20px;
+      position: relative;
+    }
+    .about::before {
+      content: '🏡 😺 🐱';
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 2rem;
+      opacity: 0.15;
+      letter-spacing: 1rem;
     }
     .about .container {
       display: flex;
@@ -316,14 +373,27 @@
     }
     .about .section-tag { background: var(--primary-pale); color: var(--primary-dark); }
     .about-illus {
-      font-size: 3.5rem;
+      font-size: 4rem;
       margin-top: 10px;
+      filter: drop-shadow(0 4px 12px rgba(123,156,151,0.2));
     }
 
     /* ── Why section ───────────────────────────────── */
     .why {
       background: var(--gray-100);
       padding: 80px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .why::before {
+      content: '💫 ✨ 💫 ✨';
+      position: absolute;
+      top: 10%; left: -20px;
+      font-size: 2.5rem;
+      opacity: 0.08;
+      letter-spacing: 2rem;
+      line-height: 3.5rem;
+      transform: rotate(-15deg);
     }
     .why .container {
       display: flex;
@@ -387,6 +457,15 @@
       user-select: none;
       transform: rotate(-10deg);
     }
+    .blood::after {
+      content: '💫 🩸 💫';
+      position: absolute;
+      bottom: 10%; left: -10px;
+      font-size: 2.5rem;
+      opacity: 0.06;
+      letter-spacing: 2rem;
+      transform: rotate(10deg);
+    }
     .blood .container {
       display: flex;
       flex-direction: column;
@@ -414,6 +493,15 @@
     .features {
       background: var(--cream);
       padding: 80px 20px;
+      position: relative;
+    }
+    .features::before {
+      content: '🌸 ✨ 🌸';
+      position: absolute;
+      top: 30px; left: 30px;
+      font-size: 2rem;
+      opacity: 0.12;
+      letter-spacing: 1.2rem;
     }
     .features .container {
       display: flex;
@@ -442,6 +530,13 @@
       transition: box-shadow 0.2s, transform 0.2s;
       position: relative;
       overflow: hidden;
+    }
+    .feature-card::before {
+      content: '✨';
+      position: absolute;
+      top: 12px; right: 12px;
+      font-size: 1.2rem;
+      opacity: 0.3;
     }
     .feature-card::after {
       content: '';
@@ -472,6 +567,15 @@
       background: linear-gradient(135deg, var(--primary-pale) 0%, #F5F9F8 100%);
       padding: 80px 20px;
       border-top: 1px solid var(--gray-200);
+      position: relative;
+    }
+    .download::before {
+      content: '📲 ✨ 📲';
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 2rem;
+      opacity: 0.12;
+      letter-spacing: 1.5rem;
     }
     .download .container {
       display: flex;
@@ -501,6 +605,15 @@
       color: rgba(255,255,255,0.65);
       padding: 36px 20px;
       text-align: center;
+      position: relative;
+    }
+    footer::before {
+      content: '🐾';
+      position: absolute;
+      top: 12px; left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5rem;
+      opacity: 0.3;
     }
     footer .container {
       display: flex;
@@ -530,8 +643,8 @@
       to   { opacity: 1; transform: translateY(0); }
     }
     @keyframes floatCat {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(-12px); }
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%       { transform: translateY(-16px) scale(1.03); }
     }
     @keyframes heartbeat {
       0%, 100% { transform: scale(1); }
@@ -587,7 +700,9 @@
 
   <!-- ── HERO ────────────────────────────────────── -->
   <section class="hero" id="hero" aria-labelledby="hero-title">
-    <span class="hero-cat" role="img" aria-label="cat emoji">🐱</span>
+    <!-- Daijin (Suzume's white cat) + magical elements -->
+    <span class="hero-cat" role="img" aria-label="white cat emoji">⚪</span>
+    <span class="hero-cat-halo" role="img" aria-label="cat face">😺</span>
     <div class="hero-badge" aria-label="Bangladesh-focused app">
       🇧🇩 <span data-en="Made for Bangladesh" data-bn="বাংলাদেশের জন্য তৈরি">Made for Bangladesh</span>
     </div>
@@ -629,7 +744,9 @@
         We're a group of passionate cat lovers building a safe, trusted community for cat owners
         across Bangladesh — because every cat deserves care, and every owner deserves support.
       </p>
-      <div class="about-illus reveal reveal-delay-3" aria-hidden="true">😺 🐾 🏡</div>
+      <div class="about-illus reveal reveal-delay-3" aria-hidden="true">
+        😺 🐾 🏡 💫
+      </div>
     </div>
   </section>
 
@@ -662,7 +779,7 @@
         </div>
         <div class="why-card reveal reveal-delay-2">
           <div class="why-card-icon" aria-hidden="true">💬</div>
-          <p class="why-card-text"
+          <p class="card-text"
              data-en="A safe, trusted space for cat owners to connect and share"
              data-bn="বিড়াল মালিকদের সংযোগ ও ভাগাভাগির জন্য একটি নিরাপদ ও বিশ্বস্ত জায়গা">
             A safe, trusted space for cat owners to connect and share
